@@ -40,6 +40,7 @@ public class Main {
 
         return switch (day) {
             case 1 -> new Day1(input);
+            case 2 -> new Day2(input);
             default -> null;
         };
     }
