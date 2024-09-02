@@ -2,7 +2,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-.idea
+.idea/
 *.iml
 
 ### Eclipse ###
@@ -31,4 +31,4 @@ bin/
 .DS_Store
 
 ### inputs ###
-./resources
+resources/

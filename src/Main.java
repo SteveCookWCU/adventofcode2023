@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.util.List;
@@ -9,26 +10,37 @@ public class Main {
             return;
         }
 
-        int day;
+        int dayVal;
         try {
-            day = Integer.parseInt(args[0]);
+            dayVal = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return;
         }
 
-        List<String> input = getInputLines(day);
-        System.out.println(input);
-    }
-
-    private static List<String> getInputLines(int day) {
-        String file = "./resources/day" + day + ".txt";
+        AoCDay day;
         try {
-            return Files.readAllLines(FileSystems.getDefault().getPath(file));
-        } catch (Exception e) {
+            day = getDay(dayVal);
+
+            if (day == null) {
+                return;
+            }
+
+            System.out.println("Part 1: " + day.part1());
+            System.out.println("Part 2: " + day.part2());
+        } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        return null;
+    private static AoCDay getDay(int day) throws IOException {
+        String file = "./resources/day" + day + ".txt";
+
+        List<String> input = Files.readAllLines(FileSystems.getDefault().getPath(file));
+
+        return switch (day) {
+            case 1 -> new Day1(input);
+            default -> null;
+        };
     }
 }
