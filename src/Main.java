@@ -41,6 +41,7 @@ public class Main {
         return switch (day) {
             case 1 -> new Day1(input);
             case 2 -> new Day2(input);
+            case 3 -> new Day3(input);
             default -> null;
         };
     }
