@@ -1,12 +1,10 @@
-import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Day4 implements AoCDay {
 
-    private List<Card> cards;
+    private final List<Card> cards;
 
     public Day4(List<String> input) {
         cards = new ArrayList<>(input.size());
